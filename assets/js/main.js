@@ -1,10 +1,22 @@
 document.getElementById('fileInput').addEventListener('change', handleFileSelect);
-document.getElementById('startButton').addEventListener('click', startTyping);
-document.getElementById('saveButton').addEventListener('click', saveNewFile);
 
 let fileContent = '';
 let typedContent = '';
 let intervalId;
+
+// Get the audio element
+const clickSound = document.getElementById('clickSound');
+
+// Add event listeners to buttons to play the sound
+document.getElementById('startButton').addEventListener('click', () => {
+    clickSound.play();
+    startTyping();
+});
+
+document.getElementById('saveButton').addEventListener('click', () => {
+    clickSound.play();
+    saveNewFile();
+});
 
 function handleFileSelect(event) {
     const file = event.target.files[0];
